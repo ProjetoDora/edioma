@@ -4,8 +4,8 @@ FunctionCall
   }
 
 ParameterList
-  = first:Parameter tail:( _ Parameter )* {
-      return [first].concat(tail.map((e) => e[1]))
+  = first:Parameter tail:( _ COMMA _ Parameter )* {
+      return [first].concat(tail.map((e) => e[3]))
   }
 
 Parameter 
@@ -20,6 +20,8 @@ STRING_LITERAL
 NEWLINE 
   = [\n(\r)?]+
 
+COMMA
+  = ','
+
 _ "whitespace"
   = [ \t]*
-  

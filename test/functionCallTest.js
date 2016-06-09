@@ -11,4 +11,13 @@ describe('Function Call', () => {
 
     expect(parse(origin)).to.equal(target)
   })  
+
+  it('translates to a function call with many args', ()=> {
+    let grammar = fs.readFileSync('src/edioma.pegjs', 'utf-8')
+    let parse = PEG.buildParser(grammar).parse 
+    let origin = 'envia("Oi", "Tchau")\n'
+    let target = 'envia("Oi","Tchau")'
+
+    expect(parse(origin)).to.equal(target)
+  })  
 })
