@@ -3,12 +3,12 @@ let expect = require('chai').expect
 let fs = require('fs')
 
 describe('Function Call', () => {
-  it('parses parameters to array', ()=> {
+  it('translates to a function call', ()=> {
     let grammar = fs.readFileSync('src/edioma.pegjs', 'utf-8')
     let parse = PEG.buildParser(grammar).parse 
-    let parsedArray = parse('(a b b)')
-    let expectedArray = ['a', 'b', 'b']
+    let origin = 'envia("Oi")\n'
+    let target = 'envia("Oi")'
 
-    expect(parsedArray).to.deep.equal(expectedArray)
+    expect(parse(origin)).to.equal(target)
   })  
 })
