@@ -8,8 +8,16 @@
     "test": "mocha test --recursive",
     "parse": "./node_modules/pegjs/bin/pegjs principal.pegjs"
   },
+  "homepage": "https://github.com/ProjetoDora/edioma#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProjetoDora/edioma.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ProjetoDora/edioma/issues"
+  },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "chai": "^3.5.0",
     "fs": "0.0.2",
