@@ -9,7 +9,7 @@ describe('Function Call', () => {
     let origin = 'envia("Oi")\n'
     let target = 'envia("Oi")'
 
-    expect(parse(origin)).to.equal(target)
+    expect(parse(origin).eval()).to.equal(target)
   })  
 
   it('translates to a function call with many args', ()=> {
@@ -18,6 +18,6 @@ describe('Function Call', () => {
     let origin = 'envia("Oi", "Tchau")\n'
     let target = 'envia("Oi","Tchau")'
 
-    expect(parse(origin)).to.equal(target)
+    expect(parse(origin).eval()).to.equal(target)
   })  
 })

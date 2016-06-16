@@ -6,6 +6,6 @@ let parse = PEG.buildParser(grammar).parse
 
 module.exports = {
   run: (source) => {
-    return parse(source)
+    return parse(source).eval()
   }
 }
