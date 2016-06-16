@@ -1,7 +1,7 @@
 let PEG = require('pegjs')
-let fs = require('fs')
+let requireText = require('require-text')
+let grammar = requireText('./edioma.pegjs', require)
 
-let grammar = fs.readFileSync('src/edioma.pegjs', 'utf-8')
 let parse = PEG.buildParser(grammar).parse 
 
 module.exports = {
@@ -9,4 +9,3 @@ module.exports = {
     return parse(source)
   }
 }
-
