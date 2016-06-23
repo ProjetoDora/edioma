@@ -6,4 +6,9 @@ describe('Function Call', () => {
     let result = edioma.run('envia("Oi")\n')   
     expect(result).to.equal('envia("Oi")')
   })
+
+  it('creates a specific message for a error', () => {
+    const exception = "Parece que você não fechou as aspas"
+    expect(() => edioma.run('envia("Oi)\n')).to.throw(Error, exception)
+  })
 })

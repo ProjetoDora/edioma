@@ -2,10 +2,16 @@ let PEG = require('pegjs')
 let requireText = require('require-text')
 let grammar = requireText('./edioma.pegjs', require)
 
-let parse = PEG.buildParser(grammar).parse 
+let parser = PEG.buildParser(grammar)
 
 module.exports = {
   run: (source) => {
-    return parse(source).eval()
+    try {
+      let result = parser.parse(source)
+      return result.eval()
+    } catch (e) {
+      if (e instanceof parser.SyntaxError)
+        throw new Error("Parece que você não fechou as aspas")
+    }
   }
 }
