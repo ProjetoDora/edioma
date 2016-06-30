@@ -19,13 +19,13 @@ Parameters
 Parameter 
   = STRING_LITERAL 
 
-IDENTIFIER
+IDENTIFIER "identificador"
   = [a-zA-Z]+ { return identifier(text()) }
 
-STRING_LITERAL
+STRING_LITERAL "literal de texto"
   = '"' [a-zA-Z]+ '"' { return stringLiteral(text()) }
   
-NEWLINE 
+NEWLINE "nova linha" 
   = [\n(\r)?]+
 
 COMMA
