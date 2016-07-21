@@ -4,9 +4,9 @@
   "description": "",
   "main": "src/edioma.js",
   "scripts": {
-    "watch": "watch 'npm test' ./",
+    "watch": "pulp --watch test",
     "compile": "pulp build",
-    "test": "mocha test --recursive",
+    "test": "pulp test",
     "parse": "./node_modules/pegjs/bin/pegjs principal.pegjs"
   },
   "homepage": "https://github.com/ProjetoDora/edioma#readme",
