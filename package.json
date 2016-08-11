@@ -5,6 +5,7 @@
   "main": "src/Main.purs",
   "scripts": {
     "test": "pulp test",
+    "compile": "pulp build",
     "watch": "pulp --watch test"
   },
   "repository": {
