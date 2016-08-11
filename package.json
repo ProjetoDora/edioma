@@ -1,0 +1,20 @@
+{
+  "name": "edioma",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/Main.purs",
+  "scripts": {
+    "test": "pulp test",
+    "watch": "pulp --watch test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ProjetoDora/edioma.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ProjetoDora/edioma/issues"
+  },
+  "homepage": "https://github.com/ProjetoDora/edioma#readme"
+}
