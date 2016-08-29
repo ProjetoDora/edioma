@@ -1,2 +1,4 @@
 node_modules/
 .stack-work/
+*.hs.swo
+npm-debug.log

@@ -1,4 +1,4 @@
-module Edioma where
+module Edioma (Expr(..), eval) where
 
 data Expr
   = Soma Expr Expr
