@@ -4,26 +4,28 @@ import Edioma (Expr(..), eval)
 import Text.ParserCombinators.Parsec
 import Data.Char (digitToInt)
 
-{- symbol :: Parser Char -}
-{- symbol = oneOf "[a-zA-z]" -}
-
 {- parse :: String -> Either -}
 parse s = case Text.ParserCombinators.Parsec.parse parseExpr "expression" s of
 	Left err -> "No match: " ++ show err
 	Right x -> show x
 
 parseExpr :: Parser Expr
-parseExpr = parseSoma <|> parseLit
+parseExpr = parseOp
+	<|> parseLit
 
-parseSoma :: Parser Expr
-parseSoma = do
+operators = oneOf "+-*"
+
+parseOp :: Parser Expr
+parseOp = do
   char '('
   x <- parseExpr
-  char '+'
+  op <- operators
   y <- parseExpr
   char ')'
-  return $ Soma x y
-
+  return $ case op of
+		'+' -> Soma x y
+		'-' -> Menos x y
+		'*' -> Mult x y
 
 parseLit :: Parser Expr
 parseLit = do
