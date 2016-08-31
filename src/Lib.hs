@@ -1,14 +1,31 @@
-module Lib (parse) where
+module Lib (Lib.parse) where
 
-import Edioma (Expr(..))
+import Edioma (Expr(..), eval)
+import Text.ParserCombinators.Parsec
+import Data.Char (digitToInt)
 
 {- symbol :: Parser Char -}
 {- symbol = oneOf "[a-zA-z]" -}
 
 {- parse :: String -> Either -}
-parse s = case parseExpr s of
-	Lit x -> Right x
-	_ -> Left "Não parseou!!"
+parse s = case Text.ParserCombinators.Parsec.parse parseExpr "expression" s of
+	Left err -> "No match: " ++ show err
+	Right x -> show x
 
-parseExpr :: String -> Expr
-parseExpr a = Lit 2
+parseExpr :: Parser Expr
+parseExpr = parseSoma <|> parseLit
+
+parseSoma :: Parser Expr
+parseSoma = do
+  char '('
+  x <- parseExpr
+  char '+'
+  y <- parseExpr
+  char ')'
+  return $ Soma x y
+
+
+parseLit :: Parser Expr
+parseLit = do
+	x <- digit
+	return $ Lit (digitToInt x)

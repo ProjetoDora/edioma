@@ -5,9 +5,7 @@ import System.Environment
 import Lib (parse)
 
 readExpr :: String -> String
-readExpr input = case parse input of
-    Left err -> "No match: " ++ show err
-    Right val -> "Found value"
+readExpr input = parse input
 
 main :: IO ()
 main = do
