@@ -7,7 +7,7 @@ import Data.Char (digitToInt)
 {- parse :: String -> Either -}
 parse s = case Text.ParserCombinators.Parsec.parse parseExpr "expression" s of
 	Left err -> "No match: " ++ show err
-	Right x -> show x
+	Right x -> show (eval x)
 
 parseExpr :: Parser Expr
 parseExpr = parseOp
